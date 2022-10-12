@@ -28,6 +28,7 @@ const newFortune = (body) => {
 
 const fortuneSubmission = () => {
     let fortuneSubmission = document.querySelector("#addFortune")
+    console.log(fortuneSubmission)
     let bodyObj = {
         fortune: fortuneSubmission.value
     }

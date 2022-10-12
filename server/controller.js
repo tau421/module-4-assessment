@@ -1,5 +1,4 @@
-const fortunes = require('./db.json')
-
+const fortunes =  ["A faithful friend is a strong defense.","A fresh start will put you on your way.","A golden egg of opportunity falls into your lap this month.","A lifetime friend shall soon be made.","A light heart carries you through all the hard times."]
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -15,10 +14,10 @@ module.exports = {
     ,
 
     getFortune: (req, res) => {
-        const fortuneGenerator =  ["A faithful friend is a strong defense.","A fresh start will put you on your way.","A golden egg of opportunity falls into your lap this month.","A lifetime friend shall soon be made.","A light heart carries you through all the hard times."]
         
-        let randomFortuneIndex = Math.floor(Math.random() * fortuneGenerator.length);
-        let randomFortune = fortuneGenerator[randomFortuneIndex];
+        
+        let randomFortuneIndex = Math.floor(Math.random() * fortunes.length);
+        let randomFortune = fortunes[randomFortuneIndex];
 
         res.status(200).send(randomFortune);
     }
@@ -26,11 +25,9 @@ module.exports = {
     ,
 
     addFortune: (req, res) => {
-        let {fortuneData} = req.body;
-        let newFortune = {
-            fortuneData
-        }
-        fortunes.push(fortuneData)
+        let {fortune} = req.body;
+        console.log(req.body)
+        fortunes.push(fortune)
         res.status(200).send(fortunes)
     }
 }
