@@ -26,8 +26,14 @@ module.exports = {
 
     addFortune: (req, res) => {
         let {fortune} = req.body;
-        console.log(req.body)
         fortunes.push(fortune)
+        res.status(200).send(fortunes)
+    }
+
+    ,
+
+    deleteFortune: (req, res) => {
+        fortunes.splice(0 , 1)
         res.status(200).send(fortunes)
     }
 }

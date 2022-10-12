@@ -1,7 +1,6 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const fortuneSubmitBtn = document.getElementById("fortuneSubmit")
-const complimentDeleteBtn = document.getElementById("complimentDelete")
 const fortuneDeleteBtn = document.getElementById("fortuneDelete")
 
 
@@ -28,14 +27,20 @@ const newFortune = (body) => {
 
 const fortuneSubmission = () => {
     let fortuneSubmission = document.querySelector("#addFortune")
-    console.log(fortuneSubmission)
     let bodyObj = {
         fortune: fortuneSubmission.value
     }
     newFortune(bodyObj)
 }
 
+const deleteFortune = () => {
+    axios.delete("http://localhost:4000/api/fortune/:id")
+        .then(res => {
+            alert("You deleted a fortune.")
+        })
+}
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 fortuneSubmitBtn.addEventListener('click', fortuneSubmission)
+fortuneDeleteBtn.addEventListener('click', deleteFortune)
