@@ -36,4 +36,11 @@ module.exports = {
         fortunes.splice(0 , 1)
         res.status(200).send(fortunes)
     }
+
+    ,
+
+    editFortune: (req, res) => {
+        fortunes.forEach(element => element.toUpperCase())
+        res.status(200).send(fortunes)
+    }
 }
