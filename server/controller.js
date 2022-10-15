@@ -34,14 +34,16 @@ module.exports = {
     ,
 
     deleteFortune: (req, res) => {
-        fortunes.splice(0 , 1)
+        const { id } = req.params
+        fortunes.splice(id-1 , 1)
         res.status(200).send(fortunes)
     }
 
     ,
 
     editFortune: (req, res) => {
-        const {fortune, newFortune } = req.body;
+        const { id } = req.params
+        fortunes.splice(id-1, 1, fortunes[id-1].toUpperCase())
         res.status(200).send(fortunes)
     }
 }

@@ -36,18 +36,25 @@ const fortuneSubmission = () => {
 }
 
 const deleteFortune = () => {
-    axios.delete("http://localhost:4000/api/fortune/:id")
+    fortuneDeleteDropdown.addEventListener('change', (e) => {
+        let fortuneToDelete = e.target.value;
+        return fortuneToDelete;
+    });
+    let id = fortuneDeleteDropdown.value
+    axios.delete(`http://localhost:4000/api/fortune/${id}`)
         .then(res => {
             alert("You deleted a fortune.")
         })
 }
+let fortuneToEdit;
+fortuneEditDropdown.addEventListener('change', (e) => {
+    fortuneToEdit = e.target.value;
+    return fortuneToEdit;
+});
 
-const editFortune = () => {
-    let fortuneId = fortuneEditDropdown.value;
-    console.log(fortuneId)
-    axios.put("http://localhost:4000/api/fortune/", (req, res) => {
-        
-    } )
+const editFortune = (id) => {
+   
+    axios.put(`http://localhost:4000/api/fortune/${fortuneToEdit}`) 
         .then(res => {
             alert("You changed your fortune.")
         })
