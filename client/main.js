@@ -2,8 +2,9 @@ const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const fortuneSubmitBtn = document.getElementById("fortuneSubmit")
 const fortuneDeleteBtn = document.getElementById("fortuneDelete")
+const fortuneDeleteDropdown = document.getElementById("fortuneDeleteDropdown")
 const fortuneEditBtn = document.getElementById("fortuneEdit")
-
+const fortuneEditDropdown = document.getElementById("fortuneEditDropdown")
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -42,7 +43,11 @@ const deleteFortune = () => {
 }
 
 const editFortune = () => {
-    axios.put("http://localhost:4000/api/fortune/:id")
+    let fortuneId = fortuneEditDropdown.value;
+    console.log(fortuneId)
+    axios.put("http://localhost:4000/api/fortune/", (req, res) => {
+        
+    } )
         .then(res => {
             alert("You changed your fortune.")
         })

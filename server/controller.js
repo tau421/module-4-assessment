@@ -1,4 +1,5 @@
 const fortunes =  ["A faithful friend is a strong defense.","A fresh start will put you on your way.","A golden egg of opportunity falls into your lap this month.","A lifetime friend shall soon be made.","A light heart carries you through all the hard times."]
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -40,7 +41,7 @@ module.exports = {
     ,
 
     editFortune: (req, res) => {
-        fortunes.forEach(element => element.toUpperCase())
+        const {fortune, newFortune } = req.body;
         res.status(200).send(fortunes)
     }
 }

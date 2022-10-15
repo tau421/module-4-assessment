@@ -12,11 +12,24 @@
       <input id="addFortune" type="text" placeholder="Type here to add a fortune.">
       <input id="fortuneSubmit" type="submit" value="Submit Fortune">
     </form>
-      <br><br>
-    <label for="deleteOption">Click to delete a fortune.</label>
-    <button id="fortuneDelete">Delete a fortune.</button>
-      <br><br>
-    <button id="fortuneEdit">Change your fortunes to uppercase.</button>
+      <p>Choose a fortune to delete.</p>
+      <select id="fortuneDeleteDropdown">
+        <option value="1">Fortune 1</option>
+        <option value="2">Fortune 2</option>
+        <option value="3">Fortune 3</option>
+        <option value="4">Fortune 4</option>
+        <option value="5">Fortune 5</option>
+      </select>
+      <button id="fortuneDelete">Delete</button>
+      <p>Choose a fortune to switch to uppercase.</p>
+    <select id="fortuneEditDropdown">
+      <option value="1">Fortune 1</option>
+      <option value="2">Fortune 2</option>
+      <option value="3">Fortune 3</option>
+      <option value="4">Fortune 4</option>
+      <option value="5">Fortune 5</option>
+    </select>
+    <button id="fortuneEdit">Submit</button>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     
